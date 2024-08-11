@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <TooltipProvider>
         <div
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-[100svh] bg-background font-sans antialiased",
             fontSans.variable,
           )}
         >
