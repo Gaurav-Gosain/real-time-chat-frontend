@@ -33,7 +33,6 @@ export function ChatList({
     <div className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col ">
       <div
         ref={messagesContainerRef}
-        key={messages?.length}
         className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col"
       >
         <AnimatePresence>

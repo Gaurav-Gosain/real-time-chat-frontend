@@ -177,7 +177,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-screen">
+    <div className="flex flex-col items-center justify-center h-[100svh] w-screen">
       <div className="w-full max-w-3xl xl:my-[2.5dvh] xl:border-2 border-gray-200 rounded-lg xl:h-[95dvh] h-full">
         <Chat
           key={fullSentences.length}
