@@ -50,7 +50,7 @@ export function ChatList({
                   {index % 2 === 0 && (
                     <Avatar className="flex justify-center items-center">
                       <AvatarImage
-                        src={"/me.webp"}
+                        src={"me.webp"}
                         alt={"Me"}
                         width={6}
                         height={6}
@@ -61,7 +61,7 @@ export function ChatList({
                     {message.message}
                     {index % 2 !== 0 && (
                       <audio controls muted>
-                        <source src={message.audio} type="audio/wav" />
+                        <source src={message.audio} type="audio/mp3" />
                         Your browser does not support the audio element.
                       </audio>
                     )}
@@ -69,7 +69,7 @@ export function ChatList({
                   {index % 2 !== 0 && (
                     <Avatar className="flex justify-center items-center">
                       <AvatarImage
-                        src={"/robo.png"}
+                        src={"robo.png"}
                         alt={"AI"}
                         width={6}
                         height={6}
