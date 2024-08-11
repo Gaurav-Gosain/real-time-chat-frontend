@@ -61,7 +61,7 @@ export function ChatList({
                     {message.message}
                     {index % 2 !== 0 && (
                       <audio controls muted>
-                        <source src={message.audio} type="audio/mp3" />
+                        <source src={message.audio} type="audio/wav" />
                         Your browser does not support the audio element.
                       </audio>
                     )}
