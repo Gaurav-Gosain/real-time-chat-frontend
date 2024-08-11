@@ -73,19 +73,6 @@ export default function ChatBottombar({
             className="min-h-[auto] w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
           ></Textarea>
         </motion.div>
-
-        {chatBoxText.trim() && (
-          <Link
-            href="#"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "h-9 w-9",
-              "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0",
-            )}
-          >
-            <SendHorizontal size={20} className="text-muted-foreground" />
-          </Link>
-        )}
       </AnimatePresence>
     </div>
   );
