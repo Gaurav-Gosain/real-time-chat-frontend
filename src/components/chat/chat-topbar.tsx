@@ -11,7 +11,10 @@ export default function ChatTopbar() {
       <Button
         onClick={() => {
           router.push("/");
-          window.location.reload();
+          // wait and reload the page
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         }}
       >
         Disconnect
