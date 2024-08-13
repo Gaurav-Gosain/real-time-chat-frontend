@@ -6,6 +6,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
             fontSans.variable,
           )}
         >
+          <Toaster />
           <Component {...pageProps} />
         </div>
       </TooltipProvider>

@@ -1,9 +1,12 @@
 import { Chat } from "@/components/chat/chat";
+import { useToast } from "@/components/ui/use-toast";
 import { Message } from "@/data/data";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export default function Home() {
+  const { toast } = useToast();
+
   const selectedUser = {
     name: "Me",
   };
@@ -115,6 +118,10 @@ export default function Home() {
 
     newSocket.onopen = () => {
       setServerAvailable(true);
+      toast({
+        title: "Connected to server",
+        description: "You are now connected to the server",
+      });
       startMsg();
     };
 
@@ -131,6 +138,10 @@ export default function Home() {
             audio: "",
           },
         ]);
+        toast({
+          title: "Generating a response",
+          description: "Please wait while the response is generated",
+        });
         setRealtimeText("generating..."); // Refresh display with new full sentence
         setNeedsSleep(true);
       } else if (data.type === "llm") {
@@ -141,6 +152,10 @@ export default function Home() {
             audio: data.audio,
           },
         ]);
+        toast({
+          title: "Response generated",
+          description: "Response generated, you can start speaking",
+        });
         setRealtimeText("start speaking..."); // Refresh display with new full sentence
         setNeedsSleep(false);
       } else if (data.type === "disconnect") {
@@ -158,6 +173,20 @@ export default function Home() {
 
     setSocket(newSocket);
   }
+
+  useEffect(() => {
+    // Cleanup function to close the WebSocket when the component unmounts
+    return () => {
+      console.log("Cleaning up WebSocket");
+      if (!socket) {
+        return;
+      }
+      if (socket.readyState === WebSocket.OPEN) {
+        socket.close(1000, "Closing WebSocket before unmounting");
+        console.log("WebSocket closed");
+      }
+    };
+  }, []);
 
   function startMsg() {
     if (!micAvailable) {
